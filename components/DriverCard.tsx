@@ -1,6 +1,6 @@
 import type { DriverProfile } from "@/data/drivers";
 import type { Language, Translation } from "@/data/translations";
-import { buildDriverInquiryLink } from "@/lib/whatsapp";
+import { buildResourceInquiryLink } from "@/lib/whatsapp";
 
 type DriverCardProps = {
   driver: DriverProfile;
@@ -52,13 +52,7 @@ export function DriverCard({ driver, language, copy }: DriverCardProps) {
       </div>
 
       <a
-        href={buildDriverInquiryLink({
-          language,
-          driverName: driver.name,
-          role: details.role,
-          location: details.location,
-          experience: details.experience,
-        })}
+        href={buildResourceInquiryLink()}
         target="_blank"
         rel="noreferrer"
         className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-emerald-950 px-5 py-3 text-center font-extrabold text-white transition hover:bg-emerald-900"

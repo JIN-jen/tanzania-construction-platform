@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack --hostname 127.0.0.1",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
@@ -18,7 +19,6 @@
     "typescript": "latest"
   },
   "devDependencies": {
-    "autoprefixer": "latest",
     "postcss": "latest",
     "tailwindcss": "latest"
   }

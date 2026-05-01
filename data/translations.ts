@@ -12,19 +12,26 @@ export const isLanguage = (value: string | null): value is Language =>
   value === "en" || value === "zh" || value === "sw";
 
 export type Translation = {
+  topBarText: string;
+  topBarButton: string;
   navCategories: string;
   navDrivers: string;
+  navEquipment: string;
   navHowItWorks: string;
   navContact: string;
   headerCta: string;
   heroBadge: string;
+  heroEyebrow: string;
   heroTitle: string;
+  heroTitleEnglish: string;
   heroSubtitle: string;
+  heroMicrocopy: string;
   whatsapp: string;
   wechat: string;
-  trustFast: string;
-  trustPrivate: string;
-  trustBilingual: string;
+  ctaPhoneLabel: string;
+  responsePromise: string;
+  trustItems: string[];
+  trustSectionTitle: string;
   panelEyebrow: string;
   panelTitle: string;
   panelText: string;
@@ -33,7 +40,9 @@ export type Translation = {
   categoriesEyebrow: string;
   categoriesTitle: string;
   categoriesSubtitle: string;
-  categories: string[];
+  askService: string;
+  serviceCards: { title: string; text: string; service: string }[];
+  categories: { title: string; text: string; service: string }[];
   driversEyebrow: string;
   driversTitle: string;
   driversSubtitle: string;
@@ -42,10 +51,23 @@ export type Translation = {
   driverLocationLabel: string;
   driverLanguagesLabel: string;
   requestDriver: string;
+  equipmentEyebrow: string;
+  equipmentTitle: string;
+  equipmentSubtitle: string;
+  equipmentCards: { title: string; text: string }[];
+  marketEyebrow: string;
+  marketTitle: string;
+  marketText: string;
+  marketPoints: string[];
+  marketCtaTitle: string;
+  marketCtaText: string;
+  marketCtaButton: string;
+  marketCtaMicrocopy: string;
   howEyebrow: string;
   howTitle: string;
   steps: { title: string; text: string }[];
   contactEyebrow: string;
+  contactUrgentTag: string;
   contactTitle: string;
   contactText: string;
   contactSupportNote: string;
@@ -53,6 +75,10 @@ export type Translation = {
   registerTitle: string;
   registerText: string;
   registerButton: string;
+  registerTrustLine: string;
+  registerSocialProof: string;
+  registerReferralLine: string;
+  registerReferralDisclaimer: string;
   whatsappLeadMessage: string;
   driverLeadMessage: string;
   wechatModalEyebrow: string;
@@ -61,25 +87,46 @@ export type Translation = {
   wechatIdLabel: string;
   wechatQrAlt: string;
   close: string;
+  footerTagline: string;
+  footerDescription: string;
+  footerNavTitle: string;
+  footerContactTitle: string;
+  footerContactHeadline: string;
+  footerWhatsappButton: string;
+  footerResponseText: string;
+  footerCopyright: string;
+  footerMarketText: string;
   footer: string;
 };
 
 export const translations: Record<Language, Translation> = {
   en: {
+    topBarText: "🔥 Urgent requests first · Driver matching within 1 hour",
+    topBarButton: "Contact on WhatsApp",
     navCategories: "Categories",
     navDrivers: "Drivers",
+    navEquipment: "Equipment",
     navHowItWorks: "How it works",
     navContact: "Contact",
     headerCta: "Start on WhatsApp",
     heroBadge: "Tanzania construction resource platform",
-    heroTitle: "Find reliable machine operators and drivers across Tanzania",
+    heroEyebrow: "Dar es Salaam based. Local network.",
+    heroTitle: "Need drivers or operators in Tanzania — today?",
+    heroTitleEnglish: "Reliable operators for Tanzania projects",
     heroSubtitle:
-      "A focused, professional front door for contractors and project teams who need trusted operators, lowbed drivers, and construction support without exposing driver phone numbers publicly.",
+      "Fast local matching for construction projects. Drivers, machine operators, and equipment support — all in one place.",
+    heroMicrocopy: "Chat on WhatsApp now for fast local matching.",
     whatsapp: "Contact on WhatsApp",
     wechat: "Add WeChat",
-    trustFast: "Fast matching for active projects",
-    trustPrivate: "Private driver details until a serious inquiry",
-    trustBilingual: "Support for English, Chinese, and Swahili communication",
+    ctaPhoneLabel: "WhatsApp hotline",
+    responsePromise: "Response within 1 hour · Dar es Salaam local network",
+    trustItems: [
+      "100+ Drivers Available",
+      "Local Tanzania Network",
+      "Chinese & English Support",
+      "Fast Matching within 1 hour",
+    ],
+    trustSectionTitle: "Trusted local construction sourcing",
     panelEyebrow: "Platform scope",
     panelTitle: "Built for driver matching first, designed to expand cleanly",
     panelText:
@@ -96,15 +143,65 @@ export const translations: Record<Language, Translation> = {
     categoriesTitle: "Key operator and driver categories",
     categoriesSubtitle:
       "The first version focuses on the categories most often requested by contractors and Chinese project teams in Tanzania.",
+    askService: "Ask for this service",
+    serviceCards: [
+      {
+        title: "Hire Drivers",
+        text: "Find experienced construction drivers in Tanzania",
+        service: "Driver",
+      },
+      {
+        title: "Hire Machine Operators",
+        text: "Excavator / Loader / Bulldozer operators",
+        service: "Operator",
+      },
+      {
+        title: "Equipment Support",
+        text: "Match machines and site needs",
+        service: "Equipment",
+      },
+    ],
     categories: [
-      "Excavator operators",
-      "Bulldozer operators",
-      "Motor grader operators",
-      "Wheel loader operators",
-      "Road roller operators",
-      "Dump truck drivers",
-      "Lowbed and trailer drivers",
-      "Water truck drivers",
+      {
+        title: "Excavator operators",
+        text: "Operators for digging, loading, and site preparation work.",
+        service: "Excavator operator",
+      },
+      {
+        title: "Bulldozer operators",
+        text: "Support for clearing, grading, and heavy earthmoving tasks.",
+        service: "Bulldozer operator",
+      },
+      {
+        title: "Motor grader operators",
+        text: "Road shaping and leveling support for civil projects.",
+        service: "Motor grader operator",
+      },
+      {
+        title: "Wheel loader operators",
+        text: "Reliable loading support for aggregates and site materials.",
+        service: "Wheel loader operator",
+      },
+      {
+        title: "Road roller operators",
+        text: "Compaction support for road bases and site finishing.",
+        service: "Road roller operator",
+      },
+      {
+        title: "Dump truck drivers",
+        text: "Material hauling for construction and mining projects.",
+        service: "Dump truck driver",
+      },
+      {
+        title: "Lowbed and trailer drivers",
+        text: "Heavy transport support for machines and site equipment.",
+        service: "Lowbed / trailer driver",
+      },
+      {
+        title: "Water truck drivers",
+        text: "Dust control and site water delivery support.",
+        service: "Water truck driver",
+      },
     ],
     driversEyebrow: "Sample profiles",
     driversTitle: "Available driver samples",
@@ -115,33 +212,76 @@ export const translations: Record<Language, Translation> = {
     driverLocationLabel: "Location",
     driverLanguagesLabel: "Languages",
     requestDriver: "Request this driver",
+    equipmentEyebrow: "Expansion path",
+    equipmentTitle: "Structured to support equipment and site resource requests",
+    equipmentSubtitle:
+      "The homepage is designed for driver matching first, while making space for equipment rental, transport, and contractor support as the platform grows.",
+    equipmentCards: [
+      {
+        title: "Equipment sourcing",
+        text: "Support inquiries for excavators, bulldozers, rollers, graders, and other construction machinery.",
+      },
+      {
+        title: "Lowbed logistics",
+        text: "Coordinate lowbed and trailer movement for heavy machines between depots and project sites.",
+      },
+      {
+        title: "Operator packages",
+        text: "Bundle skilled operators with machine type, site location, and project start timing.",
+      },
+      {
+        title: "Site support network",
+        text: "Expand later into construction teams, material supply, and project coordination services.",
+      },
+    ],
+    marketEyebrow: "Commercial positioning",
+    marketTitle: "A simple front door for Tanzanian construction demand",
+    marketText:
+      "Instead of listing uncontrolled phone numbers, the platform presents a clean, credible contact channel for contractors, Chinese companies, and site managers who need fast help.",
+    marketPoints: [
+      "Professional first impression for inbound leads",
+      "Clear path from inquiry to matching",
+      "Easy to extend into new resource categories",
+    ],
+    marketCtaTitle: "Ready to handle construction requests?",
+    marketCtaText:
+      "Send the requirement through WhatsApp and we will help match drivers, operators, equipment or lowbed support.",
+    marketCtaButton: "Start on WhatsApp",
+    marketCtaMicrocopy: "Response within 1 hour · Dar es Salaam network",
     howEyebrow: "Process",
-    howTitle: "A simple way to match the right operator",
+    howTitle: "How it works",
     steps: [
       {
-        title: "Send your requirement",
-        text: "Share the machine type, site location, preferred start date, and any language or shift requirements.",
+        title: "Tell us your need",
+        text: "Share the machine type, location, and start timing.",
       },
       {
-        title: "Receive suitable matches",
-        text: "The platform checks availability and recommends relevant drivers or operators for the job.",
+        title: "We match drivers and operators",
+        text: "We check the local network and identify suitable people for the job.",
       },
       {
-        title: "Confirm and mobilize",
-        text: "Once approved, the selected operator can be coordinated for site arrival and onboarding.",
+        title: "Connect via WhatsApp",
+        text: "You confirm the best option and continue directly through WhatsApp.",
       },
     ],
     contactEyebrow: "Urgent request",
+    contactUrgentTag: "Urgent requests handled within 1 hour",
     contactTitle: "Need a driver today?",
     contactText:
       "Send the requirement through WhatsApp or WeChat and include the machine type, site location, and start timing.",
     contactSupportNote:
-      "WhatsApp and WeChat both route through the platform so contact details stay controlled and professional.",
+      "Most contractors contact us via WhatsApp for fastest response",
     registerEyebrow: "Supply side",
-    registerTitle: "Register as a driver or operator",
+    registerTitle: "Looking for driver or operator jobs?",
     registerText:
-      "Drivers, operators, and lowbed teams can apply to be included in the platform resource list for future matching.",
-    registerButton: "Apply by WhatsApp",
+      "Join our network and get matched with real construction jobs in Dar es Salaam",
+    registerButton: "Apply on WhatsApp",
+    registerTrustLine: "Free registration · No agent fees",
+    registerSocialProof: "Drivers are already getting job opportunities through the platform",
+    registerReferralLine:
+      "Referral bonus paid only after the driver is successfully placed on a job",
+    registerReferralDisclaimer:
+      "Only applies to drivers placed through the platform and starting actual work",
     whatsappLeadMessage:
       "Hello, I need a construction driver or machine operator in Tanzania.",
     driverLeadMessage:
@@ -152,24 +292,46 @@ export const translations: Record<Language, Translation> = {
     wechatIdLabel: "WeChat ID",
     wechatQrAlt: "WeChat QR code for Tanzania Construction Resource Platform",
     close: "Close",
+    footerTagline: "Tanzania construction resource platform",
+    footerDescription:
+      "Connecting contractors with reliable drivers, operators, and equipment across Dar es Salaam.",
+    footerNavTitle: "Navigation",
+    footerContactTitle: "Contact",
+    footerContactHeadline: "Get drivers fast",
+    footerWhatsappButton: "Chat on WhatsApp",
+    footerResponseText: "Response within 1 hour",
+    footerCopyright: "© 2026 TCR Hub",
+    footerMarketText: "Built for Tanzania construction market",
     footer:
       "Built for driver matching first and structured to grow into a broader Tanzania construction resource platform.",
   },
   zh: {
+    topBarText: "🔥 急单优先 · 正在处理多个工程需求",
+    topBarButton: "立即WhatsApp联系",
     navCategories: "分类",
     navDrivers: "司机资源",
+    navEquipment: "设备需求",
     navHowItWorks: "服务流程",
     navContact: "联系",
-    headerCta: "WhatsApp 咨询",
+    headerCta: "立即获取司机",
     heroBadge: "坦桑工程资源平台",
-    heroTitle: "在坦桑尼亚快速找到靠谱工程机械操作手和司机",
+    heroEyebrow: "达累斯萨拉姆本地协同网络",
+    heroTitle: "快速找到靠谱司机",
+    heroTitleEnglish: "Reliable operators for Tanzania projects",
     heroSubtitle:
-      "面向工程承包商和项目团队的专业入口，帮助你高效对接司机、操作手和低板车资源，同时不公开司机个人电话。",
-    whatsapp: "WhatsApp 联系",
+      "面向承包商和项目团队的专业入口，帮助你快速对接司机、操作手和低板车资源，同时避免到处找私人电话。",
+    heroMicrocopy: "1小时内响应 · WhatsApp直连",
+    whatsapp: "立即获取司机",
     wechat: "添加微信",
-    trustFast: "面向在建项目的快速匹配",
-    trustPrivate: "真实司机联系方式仅在有效需求后提供",
-    trustBilingual: "支持英文、中文和斯瓦希里语沟通",
+    ctaPhoneLabel: "WhatsApp 热线",
+    responsePromise: "1小时内回复",
+    trustItems: [
+      "100+ 司机资源",
+      "坦桑本地网络",
+      "支持中文与英文",
+      "1小时内快速匹配",
+    ],
+    trustSectionTitle: "本地工程资源快速对接",
     panelEyebrow: "平台定位",
     panelTitle: "先聚焦司机撮合，再平滑扩展更多工程资源",
     panelText:
@@ -186,15 +348,33 @@ export const translations: Record<Language, Translation> = {
     categoriesTitle: "重点司机与操作手分类",
     categoriesSubtitle:
       "首版优先覆盖坦桑项目中最常见、最有需求的工程司机和机械操作手类型。",
+    askService: "马上匹配司机",
+    serviceCards: [
+      {
+        title: "招聘司机",
+        text: "快速找到坦桑本地有经验的工程司机",
+        service: "Driver",
+      },
+      {
+        title: "招聘机械操作手",
+        text: "挖机 / 装载机 / 推土机操作手",
+        service: "Operator",
+      },
+      {
+        title: "设备支持",
+        text: "根据工地需求匹配设备与资源",
+        service: "Equipment",
+      },
+    ],
     categories: [
-      "挖机操作手",
-      "推土机操作手",
-      "平地机操作手",
-      "装载机操作手",
-      "压路机操作手",
-      "自卸车司机",
-      "板车 / 拖车司机",
-      "洒水车司机",
+      { title: "挖机操作手", text: "适合开挖、装车和场地准备作业。", service: "挖机操作手" },
+      { title: "推土机操作手", text: "适合清表、平整和重型土方施工。", service: "推土机操作手" },
+      { title: "平地机操作手", text: "适合道路整形和土方找平项目。", service: "平地机操作手" },
+      { title: "装载机操作手", text: "适合砂石装载和工地物料转运。", service: "装载机操作手" },
+      { title: "压路机操作手", text: "适合道路基层和场地压实施工。", service: "压路机操作手" },
+      { title: "自卸车司机", text: "适合土方、石料和工地运输任务。", service: "自卸车司机" },
+      { title: "板车 / 拖车司机", text: "适合设备和重型机械低板运输。", service: "板车 / 拖车司机" },
+      { title: "洒水车司机", text: "适合扬尘控制和工地供水支持。", service: "洒水车司机" },
     ],
     driversEyebrow: "司机样例",
     driversTitle: "可匹配司机示例",
@@ -204,34 +384,75 @@ export const translations: Record<Language, Translation> = {
     driverExperienceLabel: "经验",
     driverLocationLabel: "地点",
     driverLanguagesLabel: "语言",
-    requestDriver: "咨询这个司机",
+    requestDriver: "马上匹配司机",
+    equipmentEyebrow: "扩展方向",
+    equipmentTitle: "为设备和工地资源需求预留了清晰结构",
+    equipmentSubtitle:
+      "页面目前以司机撮合为核心，同时已经为设备租赁、运输协调和项目资源扩展留好了位置。",
+    equipmentCards: [
+      {
+        title: "设备需求对接",
+        text: "支持挖机、推土机、压路机、平地机等工程机械需求咨询。",
+      },
+      {
+        title: "板车运输协调",
+        text: "可承接重型设备在仓库、停车场与项目工地之间的低板运输需求。",
+      },
+      {
+        title: "司机配套方案",
+        text: "根据设备类型、工地位置和开工时间组合匹配司机与操作手。",
+      },
+      {
+        title: "项目资源网络",
+        text: "后续可继续扩展施工队、材料供应和项目协同服务。",
+      },
+    ],
+    marketEyebrow: "商业表达",
+    marketTitle: "为坦桑工程需求提供一个更专业的线上入口",
+    marketText:
+      "平台不直接公开大量私人电话，而是先建立一个干净、可信的联系入口，适合承包商、中国公司和项目经理使用。",
+    marketPoints: [
+      "更专业的客户第一印象",
+      "从咨询到匹配的清晰路径",
+      "后续更容易扩展更多资源分类",
+    ],
+    marketCtaTitle: "准备开始处理工程需求？",
+    marketCtaText:
+      "通过 WhatsApp 发送需求，我们会协助匹配司机、操作手、设备或低板车支持。",
+    marketCtaButton: "Start on WhatsApp",
+    marketCtaMicrocopy: "1小时内响应 · 达市本地网络",
     howEyebrow: "流程",
-    howTitle: "更简单地匹配合适司机",
+    howTitle: "服务流程",
     steps: [
       {
-        title: "发送需求",
-        text: "告诉我们设备类型、项目地点、预计开工时间，以及是否需要中英或斯语沟通。",
+        title: "告诉我们你的需求",
+        text: "说明设备类型、工作地点和开始时间。",
       },
       {
-        title: "收到匹配建议",
-        text: "平台筛选可用资源，并推荐合适的司机或操作手供你确认。",
+        title: "我们匹配司机和操作手",
+        text: "根据本地资源网络，为你筛选合适人员。",
       },
       {
-        title: "确认并进场",
-        text: "确认合适人选后，即可安排到项目现场报到并开始协调上岗。",
+        title: "通过 WhatsApp 对接",
+        text: "确认方向后，继续通过 WhatsApp 快速沟通。",
       },
     ],
     contactEyebrow: "紧急需求",
+    contactUrgentTag: "🔥 急单优先 · 1小时内匹配司机 · 点击立即联系",
     contactTitle: "今天就需要司机？",
     contactText:
       "通过 WhatsApp 或微信发送需求，说明设备类型、工地位置和开工时间，我们会尽快回复。",
     contactSupportNote:
-      "WhatsApp 和微信都统一进入平台，方便集中管理沟通，也更专业。",
+      "大多数客户通过 WhatsApp 在 10–30分钟内得到回复",
     registerEyebrow: "司机入驻",
-    registerTitle: "司机和操作手报名",
+    registerTitle: "在找司机或操作手工作？",
     registerText:
-      "司机、机械操作手和低板车团队都可以报名加入平台资源库，便于后续项目匹配。",
+      "加入平台资源库，获取坦桑本地真实工程项目匹配机会",
     registerButton: "通过 WhatsApp 报名",
+    registerTrustLine: "免费登记 · 无中介费",
+    registerSocialProof: "已有司机正在通过平台获取工作机会",
+    registerReferralLine: "推荐司机成功上岗后发放奖励（按项目结算）",
+    registerReferralDisclaimer: "仅限通过平台完成匹配并开始工作的司机",
     whatsappLeadMessage: "你好，我需要在坦桑尼亚找工程司机或机械操作手。",
     driverLeadMessage: "你好，我想报名加入坦桑工程资源平台，成为司机或操作手资源。",
     wechatModalEyebrow: "微信联系",
@@ -240,23 +461,45 @@ export const translations: Record<Language, Translation> = {
     wechatIdLabel: "微信号",
     wechatQrAlt: "坦桑工程资源平台微信二维码",
     close: "关闭",
+    footerTagline: "Tanzania construction resource platform",
+    footerDescription:
+      "Connecting contractors with reliable drivers, operators, and equipment across Dar es Salaam.",
+    footerNavTitle: "导航",
+    footerContactTitle: "联系",
+    footerContactHeadline: "快速获取司机",
+    footerWhatsappButton: "Chat on WhatsApp",
+    footerResponseText: "1小时内响应",
+    footerCopyright: "© 2026 TCR Hub",
+    footerMarketText: "Built for Tanzania construction market",
     footer: "从司机撮合切入，并为后续发展成更完整的坦桑工程资源平台做好结构准备。",
   },
   sw: {
+    topBarText: "🔥 Maombi ya haraka kwanza · Matching ya dereva ndani ya saa 1",
+    topBarButton: "Wasiliana kwa WhatsApp",
     navCategories: "Makundi",
     navDrivers: "Madereva",
+    navEquipment: "Vifaa",
     navHowItWorks: "Jinsi inavyofanya kazi",
     navContact: "Mawasiliano",
     headerCta: "Anza kwa WhatsApp",
     heroBadge: "Jukwaa la rasilimali za ujenzi Tanzania",
-    heroTitle: "Pata madereva na waendeshaji wa mitambo wanaoaminika kote Tanzania",
+    heroEyebrow: "Mtandao wa ndani wa Dar es Salaam",
+    heroTitle: "Pata madereva wanaoaminika haraka",
+    heroTitleEnglish: "Reliable operators for Tanzania projects",
     heroSubtitle:
-      "Mlango wa kitaalamu kwa wakandarasi na timu za miradi wanaohitaji waendeshaji, madereva wa lowbed, na msaada wa ujenzi bila kuweka namba za madereva wazi hadharani.",
+      "Mlango wa kitaalamu kwa wakandarasi na timu za miradi wanaohitaji madereva, waendeshaji, na msaada wa lowbed bila kutegemea namba za watu zilizotawanyika.",
+    heroMicrocopy: "Anza kuzungumza nasi sasa kupitia WhatsApp.",
     whatsapp: "Wasiliana kwa WhatsApp",
     wechat: "Ongeza WeChat",
-    trustFast: "Upatanishaji wa haraka kwa miradi inayoendelea",
-    trustPrivate: "Taarifa za dereva hubaki binafsi hadi ombi la kweli",
-    trustBilingual: "Mawasiliano kwa Kiingereza, Kichina, na Kiswahili",
+    ctaPhoneLabel: "Namba ya WhatsApp",
+    responsePromise: "Majibu ndani ya saa 1",
+    trustItems: [
+      "Madereva 100+",
+      "Mtandao wa ndani Tanzania",
+      "Msaada kwa Kichina na Kiingereza",
+      "Matching ndani ya saa 1",
+    ],
+    trustSectionTitle: "Mtandao wa kuaminika wa rasilimali za ujenzi",
     panelEyebrow: "Mwelekeo wa jukwaa",
     panelTitle: "Limejengwa kuanza na madereva, lakini kupanuka kwa urahisi",
     panelText:
@@ -273,15 +516,33 @@ export const translations: Record<Language, Translation> = {
     categoriesTitle: "Makundi muhimu ya madereva na waendeshaji",
     categoriesSubtitle:
       "Toleo la kwanza linaangazia makundi yanayohitajika zaidi na wakandarasi pamoja na timu za miradi ya Kichina Tanzania.",
+    askService: "Ulizia huduma hii",
+    serviceCards: [
+      {
+        title: "Pata Madereva",
+        text: "Pata madereva wa ujenzi wenye uzoefu Tanzania",
+        service: "Driver",
+      },
+      {
+        title: "Pata Machine Operators",
+        text: "Waendeshaji wa Excavator / Loader / Bulldozer",
+        service: "Operator",
+      },
+      {
+        title: "Msaada wa Vifaa",
+        text: "Linganisha mashine na mahitaji ya site",
+        service: "Equipment",
+      },
+    ],
     categories: [
-      "Waendeshaji wa excavator",
-      "Waendeshaji wa bulldozer",
-      "Waendeshaji wa motor grader",
-      "Waendeshaji wa wheel loader",
-      "Waendeshaji wa road roller",
-      "Madereva wa dump truck",
-      "Madereva wa lowbed na trailer",
-      "Madereva wa water truck",
+      { title: "Waendeshaji wa excavator", text: "Kwa kazi za uchimbaji, upakiaji, na maandalizi ya site.", service: "Excavator operator" },
+      { title: "Waendeshaji wa bulldozer", text: "Kwa kusafisha eneo, kusawazisha, na earthmoving nzito.", service: "Bulldozer operator" },
+      { title: "Waendeshaji wa motor grader", text: "Kwa miradi ya roads na kusawazisha maeneo.", service: "Motor grader operator" },
+      { title: "Waendeshaji wa wheel loader", text: "Kwa upakiaji wa aggregates na vifaa vya site.", service: "Wheel loader operator" },
+      { title: "Waendeshaji wa road roller", text: "Kwa compaction ya roads na finishing ya site.", service: "Road roller operator" },
+      { title: "Madereva wa dump truck", text: "Kwa hauling ya vifaa vya ujenzi na earthworks.", service: "Dump truck driver" },
+      { title: "Madereva wa lowbed na trailer", text: "Kwa kusafirisha mashine nzito na vifaa vya site.", service: "Lowbed / trailer driver" },
+      { title: "Madereva wa water truck", text: "Kwa dust control na usambazaji wa maji site.", service: "Water truck driver" },
     ],
     driversEyebrow: "Wasifu wa sampuli",
     driversTitle: "Sampuli za madereva waliopo",
@@ -292,33 +553,76 @@ export const translations: Record<Language, Translation> = {
     driverLocationLabel: "Eneo",
     driverLanguagesLabel: "Lugha",
     requestDriver: "Omba dereva huyu",
+    equipmentEyebrow: "Mwelekeo wa upanuzi",
+    equipmentTitle: "Muundo wake uko tayari kusaidia maombi ya vifaa na rasilimali za site",
+    equipmentSubtitle:
+      "Ukurasa huu unaanza na matching ya madereva, lakini tayari una nafasi ya kukua kwenye vifaa, usafiri, na huduma nyingine za miradi.",
+    equipmentCards: [
+      {
+        title: "Kupata vifaa",
+        text: "Pokea maombi ya excavator, bulldozer, roller, grader na mashine nyingine za ujenzi.",
+      },
+      {
+        title: "Logistics za lowbed",
+        text: "Ratibu usafiri wa lowbed na trailer kwa mitambo mizito kati ya yard na eneo la mradi.",
+      },
+      {
+        title: "Operator packages",
+        text: "Unganisha muendeshaji sahihi na aina ya mashine, eneo la kazi, na muda wa kuanza.",
+      },
+      {
+        title: "Mtandao wa usaidizi wa site",
+        text: "Baadaye jukwaa linaweza kupanuka kwenye timu za ujenzi, vifaa, na uratibu wa mradi.",
+      },
+    ],
+    marketEyebrow: "Msimamo wa biashara",
+    marketTitle: "Mlango rahisi na wa kitaalamu kwa mahitaji ya ujenzi Tanzania",
+    marketText:
+      "Badala ya kuonyesha namba nyingi zisizodhibitiwa, jukwaa linaweka njia safi na ya kuaminika kwa wakandarasi, makampuni ya Kichina, na wasimamizi wa site.",
+    marketPoints: [
+      "Muonekano wa kitaalamu kwa lead za mwanzo",
+      "Njia iliyo wazi kutoka inquiry hadi matching",
+      "Rahisi kupanuka kwenye rasilimali nyingine",
+    ],
+    marketCtaTitle: "Ready to handle construction requests?",
+    marketCtaText:
+      "Send the requirement through WhatsApp and we will help match drivers, operators, equipment or lowbed support.",
+    marketCtaButton: "Start on WhatsApp",
+    marketCtaMicrocopy: "Response within 1 hour · Dar es Salaam network",
     howEyebrow: "Utaratibu",
-    howTitle: "Njia rahisi ya kupata muendeshaji anayefaa",
+    howTitle: "Jinsi inavyofanya kazi",
     steps: [
       {
-        title: "Tuma hitaji lako",
-        text: "Eleza aina ya mashine, eneo la kazi, tarehe ya kuanza, na kama unahitaji mawasiliano ya Kiswahili, Kiingereza, au Kichina.",
+        title: "Tuambie hitaji lako",
+        text: "Eleza aina ya mashine, eneo la kazi, na muda wa kuanza.",
       },
       {
-        title: "Pokea mapendekezo sahihi",
-        text: "Jukwaa linakagua upatikanaji na kupendekeza madereva au waendeshaji wanaofaa kwa kazi hiyo.",
+        title: "Tunatafuta dereva au operator",
+        text: "Tunatumia mtandao wa ndani kupata watu wanaofaa.",
       },
       {
-        title: "Thibitisha na waandae kuanza",
-        text: "Baada ya kuthibitisha, muendeshaji anaweza kuratibiwa kufika site na kuanza kazi.",
+        title: "Unganishwa kupitia WhatsApp",
+        text: "Baada ya kuthibitisha mwelekeo, mawasiliano yanaendelea kwa WhatsApp.",
       },
     ],
     contactEyebrow: "Mahitaji ya haraka",
+    contactUrgentTag: "Maombi ya haraka hushughulikiwa ndani ya saa 1",
     contactTitle: "Unahitaji dereva leo?",
     contactText:
       "Tuma hitaji lako kupitia WhatsApp au WeChat na uandike aina ya mashine, eneo la site, na muda wa kuanza kazi.",
     contactSupportNote:
-      "WhatsApp na WeChat zote zinaingia kwa jukwaa ili mawasiliano yabaki salama, nadhifu, na ya kitaalamu.",
+      "Wakandarasi wengi hutuwasiliana kwanza kwa WhatsApp kwa majibu ya haraka zaidi",
     registerEyebrow: "Kwa madereva",
-    registerTitle: "Jisajili kama dereva au muendeshaji",
+    registerTitle: "Unatafuta kazi ya udereva au operator?",
     registerText:
-      "Madereva, waendeshaji, na timu za lowbed wanaweza kuomba kuingizwa kwenye orodha ya jukwaa kwa matching ya miradi ijayo.",
-    registerButton: "Omba kupitia WhatsApp",
+      "Jiunge na mtandao wetu na uunganishwe na miradi halisi ya ujenzi Dar es Salaam.",
+    registerButton: "Apply on WhatsApp",
+    registerTrustLine: "Usajili wa bure · Hakuna ada ya wakala",
+    registerSocialProof: "Drivers are already getting job opportunities through the platform",
+    registerReferralLine:
+      "Referral bonus paid only after the driver is successfully placed on a job",
+    registerReferralDisclaimer:
+      "Only applies to drivers placed through the platform and starting actual work",
     whatsappLeadMessage:
       "Habari, ninahitaji dereva wa ujenzi au muendeshaji wa mashine Tanzania.",
     driverLeadMessage:
@@ -329,6 +633,16 @@ export const translations: Record<Language, Translation> = {
     wechatIdLabel: "WeChat ID",
     wechatQrAlt: "QR code ya WeChat ya Tanzania Construction Resource Platform",
     close: "Funga",
+    footerTagline: "Tanzania construction resource platform",
+    footerDescription:
+      "Connecting contractors with reliable drivers, operators, and equipment across Dar es Salaam.",
+    footerNavTitle: "Urambazaji",
+    footerContactTitle: "Mawasiliano",
+    footerContactHeadline: "Pata madereva haraka",
+    footerWhatsappButton: "Chat on WhatsApp",
+    footerResponseText: "Majibu ndani ya saa 1",
+    footerCopyright: "© 2026 TCR Hub",
+    footerMarketText: "Built for Tanzania construction market",
     footer: "Limejengwa kuanza na matching ya madereva na lina muundo wa kupanuka kuwa jukwaa pana la rasilimali za ujenzi Tanzania.",
   },
 };

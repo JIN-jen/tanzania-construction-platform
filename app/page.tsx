@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Categories, Contact, Drivers, HowItWorks } from "@/components/Sections";
+import { Categories, Contact, Drivers, Equipment, HowItWorks, TrustSection } from "@/components/Sections";
 import { WeChatModal } from "@/components/WeChatModal";
 import { defaultLanguage, isLanguage, translations, type Language } from "@/data/translations";
 
@@ -51,14 +52,14 @@ export default function Home() {
       <main className="pb-10">
         <Header language={language} onLanguageChange={setLanguage} copy={copy} />
         <Hero copy={copy} onOpenWeChat={() => setWechatOpen(true)} />
+        <TrustSection copy={copy} />
         <Categories copy={copy} />
         <Drivers language={language} copy={copy} />
+        <Equipment copy={copy} />
         <HowItWorks copy={copy} />
-        <Contact copy={copy} onOpenWeChat={() => setWechatOpen(true)} />
+        <Contact language={language} copy={copy} onOpenWeChat={() => setWechatOpen(true)} />
       </main>
-      <footer className="border-t border-slate-900/8 px-5 py-8 text-center text-sm text-slate-500">
-        {copy.footer}
-      </footer>
+      <Footer copy={copy} />
       <WeChatModal
         isOpen={wechatOpen}
         onClose={() => setWechatOpen(false)}
