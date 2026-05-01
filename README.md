@@ -1,6 +1,6 @@
 # Tanzania Construction Resource Platform
 
-A V1 landing page for driver/operator matching in Tanzania.
+A landing page for driver and operator matching in Tanzania with support for English, Chinese, and Swahili.
 
 ## Run locally
 
@@ -11,13 +11,16 @@ npm run dev
 
 Open http://localhost:3000
 
-## Edit content
+## Project structure
 
-- `data/translations.ts` — English / Chinese / Swahili text
-- `data/drivers.ts` — driver cards
-- `data/config.ts` — WhatsApp link, WeChat ID, QR image
+- `app/` — Next.js app entrypoints and global styles
+- `components/` — reusable UI sections
+- `data/translations.ts` — English / Chinese / Swahili UI copy
+- `data/drivers.ts` — localized driver sample data
+- `data/config.ts` — contact channels and platform identity
+- `lib/whatsapp.ts` — WhatsApp link helpers
 - `public/images/wechat-qr.png` — WeChat QR code
 
 ## Important rule
 
-Do not show driver phone numbers publicly. All requests go through WhatsApp or WeChat.
+Do not show driver phone numbers publicly. All requests should route through WhatsApp or WeChat.
