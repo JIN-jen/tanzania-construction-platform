@@ -104,6 +104,52 @@ export function TrustSection({ copy }: SectionProps) {
   );
 }
 
+export function RecruitmentSection({ language, copy }: DriversProps) {
+  return (
+    <section className="px-5 py-6 md:py-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-5 rounded-[2rem] border border-emerald-100 bg-gradient-to-br from-[#f7fff9] via-white to-[#eefbf2] p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] md:p-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="max-w-2xl">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-900/70">
+              {copy.recruitmentEyebrow}
+            </p>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950 md:text-4xl">
+              {copy.recruitmentTitle}
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">
+              {copy.recruitmentSubtitle}
+            </p>
+          </div>
+
+          <div className="rounded-[1.75rem] border border-emerald-100 bg-white/88 p-6 shadow-[0_14px_36px_rgba(15,23,42,0.05)] md:p-7">
+            <div className="grid gap-3 sm:grid-cols-2">
+              {copy.recruitmentRoles.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+            <a
+              href={buildDriverRegistrationLink(language)}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-emerald-950 px-6 py-4 text-base font-extrabold text-white shadow-[0_18px_40px_rgba(14,50,25,0.18)] transition hover:bg-emerald-900"
+            >
+              {copy.recruitmentButton}
+            </a>
+            <p className="mt-3 text-sm font-semibold text-slate-500">
+              {copy.recruitmentTrust}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function Drivers({ language, copy }: DriversProps) {
   return (
     <section id="drivers" className="px-5 py-12 md:py-16">
@@ -299,8 +345,6 @@ export function Contact({ language, copy, onOpenWeChat }: ContactProps) {
           </a>
           <p className="mt-3 text-sm font-semibold text-slate-500">{copy.registerTrustLine}</p>
           <p className="mt-2 text-sm font-semibold text-emerald-900">{copy.registerSocialProof}</p>
-          <p className="mt-6 text-sm font-bold text-slate-900">{copy.registerReferralLine}</p>
-          <p className="mt-2 text-xs leading-6 text-slate-500">{copy.registerReferralDisclaimer}</p>
         </div>
       </div>
     </section>

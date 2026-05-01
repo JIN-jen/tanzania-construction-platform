@@ -21,21 +21,36 @@ export function buildDriverRegistrationLink(language: Language) {
     return buildWhatsAppLink(`你好，我想登记成为司机/操作手：
 
 姓名：
-工种（挖机/卡车/压路机等）：
+工种：
 工作经验：
 所在城市：
-是否有证件：
+证件情况：
+可开始工作时间：
 
-请帮我加入资源库，谢谢`);
+请帮我加入 TCR Hub 司机/操作手资源库。`);
+  }
+
+  if (language === "sw") {
+    return buildWhatsAppLink(`Halo, nataka kujisajili kama dereva/opereta:
+
+Jina:
+Aina ya kazi:
+Uzoefu:
+Mahali:
+Leseni/Cheti:
+Ninaweza kuanza lini:
+
+Tafadhali niongeze kwenye database ya TCR Hub.`);
   }
 
   return buildWhatsAppLink(`Hi, I want to register as a driver/operator:
 
 Name:
-Type (excavator/truck/roller etc):
+Work type:
 Experience:
 Location:
-License status:
+License/Certificate:
+Available start date:
 
-Please add me to the database, thanks`);
+Please add me to the TCR Hub driver/operator database.`);
 }

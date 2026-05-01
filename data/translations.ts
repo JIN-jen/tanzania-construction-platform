@@ -37,6 +37,12 @@ export type Translation = {
   panelText: string;
   resourceFlow: string[];
   platformContactLabel: string;
+  recruitmentEyebrow: string;
+  recruitmentTitle: string;
+  recruitmentSubtitle: string;
+  recruitmentRoles: string[];
+  recruitmentButton: string;
+  recruitmentTrust: string;
   categoriesEyebrow: string;
   categoriesTitle: string;
   categoriesSubtitle: string;
@@ -77,8 +83,6 @@ export type Translation = {
   registerButton: string;
   registerTrustLine: string;
   registerSocialProof: string;
-  registerReferralLine: string;
-  registerReferralDisclaimer: string;
   whatsappLeadMessage: string;
   driverLeadMessage: string;
   wechatModalEyebrow: string;
@@ -139,6 +143,19 @@ export const translations: Record<Language, Translation> = {
       "Trade and material support",
     ],
     platformContactLabel: "Primary WhatsApp line",
+    recruitmentEyebrow: "For drivers and operators",
+    recruitmentTitle: "Looking for driver or operator jobs?",
+    recruitmentSubtitle:
+      "Join TCR Hub and get matched with real construction work opportunities in Tanzania.",
+    recruitmentRoles: [
+      "Excavator operators",
+      "Truck drivers",
+      "Bulldozer operators",
+      "Wheel loader operators",
+      "Lowbed / trailer drivers",
+    ],
+    recruitmentButton: "Apply as Driver / Operator",
+    recruitmentTrust: "Free registration · No agent fees · Jobs matched through WhatsApp",
     categoriesEyebrow: "Coverage",
     categoriesTitle: "Key operator and driver categories",
     categoriesSubtitle:
@@ -274,14 +291,10 @@ export const translations: Record<Language, Translation> = {
     registerEyebrow: "Supply side",
     registerTitle: "Looking for driver or operator jobs?",
     registerText:
-      "Join our network and get matched with real construction jobs in Dar es Salaam",
+      "Join TCR Hub and get matched with real construction work opportunities in Tanzania.",
     registerButton: "Apply on WhatsApp",
     registerTrustLine: "Free registration · No agent fees",
     registerSocialProof: "Drivers are already getting job opportunities through the platform",
-    registerReferralLine:
-      "Referral bonus paid only after the driver is successfully placed on a job",
-    registerReferralDisclaimer:
-      "Only applies to drivers placed through the platform and starting actual work",
     whatsappLeadMessage:
       "Hello, I need a construction driver or machine operator in Tanzania.",
     driverLeadMessage:
@@ -344,6 +357,19 @@ export const translations: Record<Language, Translation> = {
       "建材与贸易支持",
     ],
     platformContactLabel: "平台 WhatsApp",
+    recruitmentEyebrow: "司机 / 操作手入口",
+    recruitmentTitle: "正在找司机或操作手工作？",
+    recruitmentSubtitle:
+      "加入 TCR Hub 资源库，获取坦桑尼亚真实工程项目匹配机会。",
+    recruitmentRoles: [
+      "挖机操作手",
+      "卡车司机",
+      "推土机操作手",
+      "装载机操作手",
+      "低板 / 拖车司机",
+    ],
+    recruitmentButton: "司机/操作手报名",
+    recruitmentTrust: "免费登记 · 无中介费 · 通过 WhatsApp 匹配工作",
     categoriesEyebrow: "覆盖范围",
     categoriesTitle: "重点司机与操作手分类",
     categoriesSubtitle:
@@ -447,12 +473,10 @@ export const translations: Record<Language, Translation> = {
     registerEyebrow: "司机入驻",
     registerTitle: "在找司机或操作手工作？",
     registerText:
-      "加入平台资源库，获取坦桑本地真实工程项目匹配机会",
-    registerButton: "通过 WhatsApp 报名",
+      "加入 TCR Hub 资源库，获取坦桑尼亚真实工程项目匹配机会。",
+    registerButton: "司机/操作手报名",
     registerTrustLine: "免费登记 · 无中介费",
     registerSocialProof: "已有司机正在通过平台获取工作机会",
-    registerReferralLine: "推荐司机成功上岗后发放奖励（按项目结算）",
-    registerReferralDisclaimer: "仅限通过平台完成匹配并开始工作的司机",
     whatsappLeadMessage: "你好，我需要在坦桑尼亚找工程司机或机械操作手。",
     driverLeadMessage: "你好，我想报名加入坦桑工程资源平台，成为司机或操作手资源。",
     wechatModalEyebrow: "微信联系",
@@ -512,6 +536,19 @@ export const translations: Record<Language, Translation> = {
       "Msaada wa vifaa na biashara",
     ],
     platformContactLabel: "Namba kuu ya WhatsApp",
+    recruitmentEyebrow: "Kwa madereva na waendeshaji",
+    recruitmentTitle: "Unatafuta kazi ya udereva au opereta?",
+    recruitmentSubtitle:
+      "Jiunge na TCR Hub upate nafasi za kazi kwenye miradi ya ujenzi Tanzania.",
+    recruitmentRoles: [
+      "Waendeshaji wa excavator",
+      "Madereva wa truck",
+      "Waendeshaji wa bulldozer",
+      "Waendeshaji wa wheel loader",
+      "Madereva wa lowbed / trailer",
+    ],
+    recruitmentButton: "Jisajili kama Dereva / Opereta",
+    recruitmentTrust: "Usajili bure · Hakuna ada ya wakala · Mawasiliano kupitia WhatsApp",
     categoriesEyebrow: "Huduma zinazofunikwa",
     categoriesTitle: "Makundi muhimu ya madereva na waendeshaji",
     categoriesSubtitle:
@@ -615,14 +652,10 @@ export const translations: Record<Language, Translation> = {
     registerEyebrow: "Kwa madereva",
     registerTitle: "Unatafuta kazi ya udereva au operator?",
     registerText:
-      "Jiunge na mtandao wetu na uunganishwe na miradi halisi ya ujenzi Dar es Salaam.",
-    registerButton: "Apply on WhatsApp",
-    registerTrustLine: "Usajili wa bure · Hakuna ada ya wakala",
-    registerSocialProof: "Drivers are already getting job opportunities through the platform",
-    registerReferralLine:
-      "Referral bonus paid only after the driver is successfully placed on a job",
-    registerReferralDisclaimer:
-      "Only applies to drivers placed through the platform and starting actual work",
+      "Jiunge na TCR Hub upate nafasi za kazi kwenye miradi ya ujenzi Tanzania.",
+    registerButton: "Jisajili kama Dereva / Opereta",
+    registerTrustLine: "Usajili bure · Hakuna ada ya wakala · Mawasiliano kupitia WhatsApp",
+    registerSocialProof: "Madereva tayari wanapata nafasi za kazi kupitia jukwaa",
     whatsappLeadMessage:
       "Habari, ninahitaji dereva wa ujenzi au muendeshaji wa mashine Tanzania.",
     driverLeadMessage:
